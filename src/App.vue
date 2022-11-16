@@ -1,12 +1,16 @@
 <script setup>
   import VideoPlayer from './components/VideoPlayer.vue'
   import VideoDetails from './components/VideoDetails.vue'
+  import Messages from './components/Messages.vue'
 </script>
 
 <template>
   <div class="app">
     <VideoPlayer />
-    <VideoDetails />
+    <div>
+      <VideoDetails />
+      <Messages />
+    </div>  
   </div>
 </template>
 
