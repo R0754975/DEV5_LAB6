@@ -1,4 +1,23 @@
 <script setup>
+import { ref, onMounted, reactive } from 'vue';
+
+let messages = reactive({});
+
+// onMounted
+onMounted(() => {
+    
+    // fetch video
+    const apiUrl = 'https://lab5-p379.onrender.com/api/v1/messages/'
+    fetch(apiUrl)
+    .then(res => res.json())
+    .then(data => {
+
+        messages = data;
+       
+    })
+
+});
+
 
 </script>
 
@@ -6,8 +25,8 @@
     <div>
          <ul>
             <li v-for="message in messages" :key="message.id">
-                <h3>{{ message.username }}</h3>
-                <p>{{ message.message }}</p>
+                <h3>{{ message.user }}</h3>
+                <p>{{ message.text }}</p>
             </li>
         </ul>    
     </div>
