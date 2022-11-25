@@ -1,7 +1,7 @@
 <script setup>
 import { ref, onMounted, reactive } from 'vue';
 
-let messages = reactive({});
+let messages = reactive({ data: [] });
 
 // onMounted
 onMounted(() => {
@@ -12,7 +12,8 @@ onMounted(() => {
     .then(res => res.json())
     .then(data => {
 
-        messages = data;
+        messages.data = data;
+        console.log (messages.data);
        
     })
 
@@ -22,9 +23,9 @@ onMounted(() => {
 </script>
 
 <template>
-    <div>
+    <div class="messages">
          <ul>
-            <li v-for="message in messages" :key="message.id">
+            <li v-for="message in messages.data" >
                 <h3>{{ message.user }}</h3>
                 <p>{{ message.text }}</p>
             </li>
@@ -37,4 +38,11 @@ onMounted(() => {
 </template>
 
 <style scoped>
+.messages {
+    height: 80vh;
+    overflow-y: auto;
+}
+
+
+
 </style>
