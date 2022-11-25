@@ -54,7 +54,7 @@ const addComment = () => {
             </li>
         </ul>    
     </div>
-    <div>
+    <div class="comment">
         <input v-model="comment">
         <button @click="addComment">Add Comment</button>
     </div>
@@ -64,8 +64,34 @@ const addComment = () => {
 .messages {
     height: 80vh;
     overflow-y: auto;
+    padding-left: 5%;
 }
 
+.messages ul {
+    padding-left: 0;
+}
+
+.comment {
+    padding-left: 5%;
+}
+
+li {
+    list-style: none;
+    border-bottom: 1px solid #ccc;
+}
+
+.comment button {
+    margin-left: 2%;
+    background-color: rgb(47, 46, 46);
+    border: none;
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.comment input {
+    padding: 3px;
+}
 
 
 </style>

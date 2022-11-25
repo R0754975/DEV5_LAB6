@@ -93,13 +93,13 @@ let animation = ref('');
 
 video {
     width: 100%;
-    height: 100vh;
+    height: 95vh;
 }
 
 .blurr {
     background-image: url("./src/assets/background.jpg");
     background-size: cover;
     position: relative;
+    height: 95vh;
 }
-
 </style>
