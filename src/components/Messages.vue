@@ -2,6 +2,7 @@
 import { ref, onMounted, reactive } from 'vue';
 
 let messages = reactive({ data: [] });
+let comment = ref('');
 
 // onMounted
 onMounted(() => {
@@ -18,6 +19,28 @@ onMounted(() => {
     })
 
 });
+
+const addComment = () => {
+    const apiUrl = 'https://lab5-p379.onrender.com/api/v1/messages/'
+    fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            user: 'Tim',
+            text: comment.value
+        })
+    })
+    .then(res => res.json())
+    .then(data => {
+        messages.data.push({
+            user: data.data.user,
+            text: data.data.text
+        });
+        comment.value = '';
+    })
+}
 
 
 </script>
